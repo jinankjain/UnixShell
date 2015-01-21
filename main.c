@@ -227,7 +227,7 @@ void parseCommand(char *cmd)
 
 void init()
 {
-	input = NULL;
+	input = '\0';
 	int i=0;
 	int j=0;
 	for(i=0;i<=pipeing;i++)
@@ -246,7 +246,7 @@ void init()
 	argument_count = 0;
 	while(bufferChars >= 0)
 	{
-		buffer[bufferChars] = NULL;
+		buffer[bufferChars] = '\0';
 		bufferChars--;
 	}
 	bufferChars = 0;
@@ -268,6 +268,9 @@ void getCommand()
 
 int main(int argc, char **argv, char **envp)
 {
+	
+	system("clear");
+
 	/* Signal Handler for Ctrl + C */
 	signal(SIGINT, SIG_IGN);
 	signal(SIGINT, handle_signal);
