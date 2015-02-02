@@ -263,19 +263,21 @@ void getCommand()
 		buffer[bufferChars] = input;
 		bufferChars++;
 	}
-	parseCommand(buffer);
+	if(buffer[0]!='\0')
+        parseCommand(buffer);
+    else return;
 }
 
 int main(int argc, char **argv, char **envp)
 {
-	
+
 	system("clear");
 
 	/* Signal Handler for Ctrl + C */
 	signal(SIGINT, SIG_IGN);
 	signal(SIGINT, handle_signal);
 
-	
+
 	while(1){
 		printf("%s $ ", getcwd(cwd, sizeof(cwd)));
 		getCommand();
